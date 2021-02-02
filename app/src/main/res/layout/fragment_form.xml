@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
+     android:layout_width="match_parent">
+
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".ui.fragments.FormFragment">
+
+    <TextView
+        style="@style/text"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:text="Админка"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ed_title"
+        android:hint="модель"
+        style="@style/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ed_article"
+        android:hint="артикль"
+        style="@style/text"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ed_features"
+        android:hint="Характеристики"
+        style="@style/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ed_description"
+        android:hint="Описание товара"
+        style="@style/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/ed_add_img1"
+        android:background="@drawable/ic_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ed_size"
+        android:hint="Размер"
+        style="@style/text"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ed_size_in_box"
+        android:hint="Размер в коробке"
+        style="@style/text"
+        android:layout_width="match_parent"
+        android:inputType="number"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ed_weight"
+        android:hint="Вес"
+        android:inputType="number"
+        style="@style/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ed_price"
+        android:hint="Цена"
+        android:inputType="number"
+        style="@style/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Spinner
+        android:id="@+id/form_spinner"
+        android:entries="@array/catData"
+        style="@style/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/ed_btn_upload"
+        android:layout_marginTop="10dp"
+        android:text="Выгрузить"
+        android:background="@drawable/button_style"
+        style="@style/btn_style"/>
+
+</LinearLayout>
+</ScrollView>
+
+

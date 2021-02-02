@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_main">
+
+    <fragment
+        android:id="@+id/boardFragment"
+        android:label="Board"
+        tools:layout="@layout/fragment_board"
+        android:name="com.example.melochizhizni.ui.board.BoardFragment">
+        <action
+            android:id="@+id/action_boardFragment_to_navigation_home"
+            app:destination="@id/navigation_main" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="com.example.melochizhizni.ui.fragments.main.MainFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_navigation_main_to_formFragment"
+            app:destination="@id/formFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_category"
+        android:name="com.example.melochizhizni.ui.fragments.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_category_to_itemFragment"
+            app:destination="@id/itemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_basket"
+        android:name="com.example.melochizhizni.ui.fragments.basket.BasketFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_basket" />
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:label="Auth"
+        tools:layout="@layout/fragment_auth"
+        android:name="com.example.melochizhizni.ui.auth.AuthFragment"/>
+    <fragment
+        android:id="@+id/formFragment"
+        android:name="com.example.melochizhizni.ui.fragments.FormFragment"
+        android:label="fragment_form"
+        tools:layout="@layout/fragment_form" />
+    <fragment
+        android:id="@+id/catCategoryFragment"
+        android:name="com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.CatCategoryFragment"
+        android:label="fragment_cat_category"
+        tools:layout="@layout/fragment_cat_category" />
+    <fragment
+        android:id="@+id/categoryTopFragment"
+        android:name="com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.CategoryTopFragment"
+        android:label="fragment_category_top"
+        tools:layout="@layout/fragment_category_top" />
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.item.ItemFragment"
+        android:label="Описание товара" />
+
+
+</navigation>

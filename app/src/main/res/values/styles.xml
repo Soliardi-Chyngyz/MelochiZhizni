@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="text">
+        <item name="fontFamily">@font/cormorant_unicase_light</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:radius">16dp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="btn_style">
+        <item name="android:layout_height">35dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:fontFamily">@font/cormorant_unicase_light</item>
+        <item name="background">@drawable/button_style</item>
+    </style>
+
+    <style name="btn_sec_style">
+        <item name="fontFamily">@font/cormorant_unicase_light</item>
+        <item name="background">@drawable/btn_transparent</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="fontFamily">@font/cormorant_unicase_light</item>
+    </style>
+
+    <style name="Mine.Toolbar" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+
+    </style>
+
+</resources>

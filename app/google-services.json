@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "512166849454",
+    "project_id": "melochizhizni-5681a",
+    "storage_bucket": "melochizhizni-5681a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512166849454:android:c44f3378ca32eafa89b63f",
+        "android_client_info": {
+          "package_name": "com.example.melochizhizni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512166849454-r8upo0b3v968o2sh0d6t12b45si212g2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYNWL4d9kB8zKCMq81FUlLTTieKAmBqCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512166849454-r8upo0b3v968o2sh0d6t12b45si212g2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

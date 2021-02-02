@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="Избраное"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/basket"
+        android:icon="@drawable/baskets"
+        android:title="Карзина"
+        app:showAsAction="never" />
+
+</menu>
