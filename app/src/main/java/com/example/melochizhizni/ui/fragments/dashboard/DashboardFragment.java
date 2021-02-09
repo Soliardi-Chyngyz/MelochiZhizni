@@ -3,6 +3,7 @@ package com.example.melochizhizni.ui.fragments.dashboard;
 import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
+import androidx.work.WorkManager;
 
 import com.example.melochizhizni.R;
 import com.example.melochizhizni.databinding.FragmentDashboardBinding;
@@ -35,6 +37,12 @@ public class DashboardFragment extends Fragment {
     private FragmentAdapter fragmentAdapter;
     private FragmentDashboardBinding binding;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        fragmentAdapter = new FragmentAdapter(this, getFragmentList());
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.bind(inflater.inflate(R.layout.fragment_dashboard, container, false));
@@ -45,16 +53,11 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewPager = view.findViewById(R.id.view_pager_dash);
-        fragmentAdapter = new FragmentAdapter(this, getFragmentList());
+        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1){
+            viewPager.setUserInputEnabled(false);
+        }
         viewPager.setAdapter(fragmentAdapter);
-
-        fixProblem();
         init(view);
-
-    }
-
-    private void fixProblem() {
-
 
     }
 
@@ -70,10 +73,6 @@ public class DashboardFragment extends Fragment {
             }
         });
         tabLayoutMediator.attach();
-        LayoutTransition transition = new LayoutTransition();
-        transition.setAnimateParentHierarchy(false);
-        tabLayout.setLayoutTransition(transition);
-
     }
 
     private List<Fragment> getFragmentList() {

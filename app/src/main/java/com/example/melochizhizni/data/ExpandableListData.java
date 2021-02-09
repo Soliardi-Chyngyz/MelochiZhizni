@@ -43,6 +43,7 @@ public class ExpandableListData {
 
         ArrayList<ExpandableCategory> list = new ArrayList<>();
         list.add(kitchen);
+        list.add(bath);
         list.add(baby);
         list.add(techno);
         return list;

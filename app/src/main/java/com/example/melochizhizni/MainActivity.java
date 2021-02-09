@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             if (destination.getId() == R.id.authFragment || destination.getId() == R.id.boardFragment) {
                 navView.setVisibility(View.GONE);
                 getSupportActionBar().hide();
-            } else if(destination.getId() == R.id.navigation_category){
+            } else if(destination.getId() == R.id.navigation_category || destination.getId() == R.id.itemFragment){
                 getSupportActionBar().hide();
             } else {
                 navView.setVisibility(View.VISIBLE);

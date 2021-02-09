@@ -24,7 +24,6 @@
             app:tabIndicatorColor="@color/purple_500"
             app:tabIndicatorAnimationMode="elastic"
             app:layout_constraintEnd_toEndOf="parent"
-            android:animateLayoutChanges="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 

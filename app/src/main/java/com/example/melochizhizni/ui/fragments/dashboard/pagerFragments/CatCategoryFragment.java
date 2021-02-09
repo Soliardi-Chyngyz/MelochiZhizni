@@ -13,9 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.melochizhizni.App;
 import com.example.melochizhizni.R;
 import com.example.melochizhizni.data.ExpandableListData;
 import com.example.melochizhizni.data.models.ExpandableCategory;
@@ -38,6 +40,7 @@ public class CatCategoryFragment extends Fragment implements CatCatItemAdapter.O
     private List<Item> listItem = new ArrayList<>();
     private CatCatViewModel vModel;
     private FirebaseFirestore fb;
+    private List<Item> roomList = App.database.itemDao().getAllItems();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,7 +67,7 @@ public class CatCategoryFragment extends Fragment implements CatCatItemAdapter.O
     private void getDataFromFB() {
         vModel.setData(fb);
         vModel.getData().observe(requireActivity(), queryDocumentSnapshots -> {
-            listItem.clear();
+//            listItem.clear();
             for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
                 Item item = new Item(
                         doc.getString("title"),
@@ -91,17 +94,26 @@ public class CatCategoryFragment extends Fragment implements CatCatItemAdapter.O
     }
 
     private void listeners() {
-
-        expandableListView.setOnGroupCollapseListener(groupPosition -> {
-            Toast.makeText(getContext(),
-                    list.get(groupPosition) + " List Collapsed.",
-                    Toast.LENGTH_SHORT).show();
-        });
+        expandableListView.setOnGroupCollapseListener(groupPosition -> Toast.makeText(getContext(),
+                list.get(groupPosition) + " List Collapsed.",
+                Toast.LENGTH_SHORT).show());
 
         expandableListView.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
-            Toast.makeText(getContext(), " -> " + list.get(childPosition), Toast.LENGTH_SHORT).show();
-            return false;
+            if (roomList != null) {
+                List<Item> myList = new ArrayList<>();
+                for (int i = 0; i < listItem.size(); i++) {
+                    if (list.get(groupPosition).getItems().get(childPosition).equals(listItem.get(childPosition).getCategory())) {
+                        myList.add(listItem.get(i));
+                        itemAdapter.setList(myList);
+                    }
+                    expandableListView.collapseGroup(groupPosition);
+                }
+            } else {
+                Toast.makeText(requireContext(), "Подождите, каталог еще не подгрузился", Toast.LENGTH_LONG).show();
+            }
+            return true;
         });
+
     }
 
     private void init(View view) {

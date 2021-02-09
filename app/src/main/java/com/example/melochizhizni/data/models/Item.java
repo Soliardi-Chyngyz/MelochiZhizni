@@ -3,15 +3,22 @@ package com.example.melochizhizni.data.models;
 import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.melochizhizni.data.converter.DataConverter;
 import com.google.firebase.firestore.Exclude;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
-
+@Entity
 public class Item implements Serializable {
+    @PrimaryKey(autoGenerate = true)
+    private long itemId;
     @Exclude
     private String title;
     private String article;
@@ -23,6 +30,28 @@ public class Item implements Serializable {
     private String weight;
     private String price;
     private String category;
+
+    public Item(long itemId, String title, String article, String photo, String features, String size, String descriptions, String sizeInBox, String weight, String price, String category) {
+        this.itemId = itemId;
+        this.title = title;
+        this.article = article;
+        this.photo = photo;
+        this.features = features;
+        this.size = size;
+        this.descriptions = descriptions;
+        this.sizeInBox = sizeInBox;
+        this.weight = weight;
+        this.price = price;
+        this.category = category;
+    }
+
+    public long getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(long itemId) {
+        this.itemId = itemId;
+    }
 
     public String getCategory() {
         return category;
@@ -44,7 +73,6 @@ public class Item implements Serializable {
         this.price = price;
         this.category = cat;
     }
-
 
     public String getPrice() {
         return price;

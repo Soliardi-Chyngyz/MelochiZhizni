@@ -31,7 +31,11 @@
         tools:layout="@layout/fragment_dashboard" >
         <action
             android:id="@+id/action_navigation_category_to_itemFragment"
-            app:destination="@id/itemFragment" />
+            app:destination="@id/itemFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -63,7 +67,16 @@
     <fragment
         android:id="@+id/itemFragment"
         android:name="com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.item.ItemFragment"
-        android:label="Описание товара" />
+        android:label="Описание товара" >
+        <action
+            android:id="@+id/action_itemFragment_to_navigation_category"
+            app:destination="@id/navigation_category"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/catCategoryFragment" />
+    </fragment>
 
 
 </navigation>

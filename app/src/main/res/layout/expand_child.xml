@@ -9,8 +9,6 @@
     <ImageView
         android:id="@+id/expand_img"
         android:layout_width="wrap_content"
-        android:src="@drawable/ic_image"
-        android:layout_marginLeft="30dp"
         android:layout_gravity="left|center_vertical"
         android:layout_height="wrap_content"/>
 
@@ -19,7 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_gravity="left|center_vertical"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         style="@style/text"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />

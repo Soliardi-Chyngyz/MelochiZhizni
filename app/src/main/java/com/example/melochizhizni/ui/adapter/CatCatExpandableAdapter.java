@@ -2,6 +2,7 @@ package com.example.melochizhizni.ui.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,14 +18,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static android.graphics.Color.BLUE;
+import static android.graphics.Color.WHITE;
+
 public class CatCatExpandableAdapter extends BaseExpandableListAdapter {
-    private final Context context;
+    private Context context;
     private ArrayList<ExpandableCategory> list;
+    private LayoutInflater inflater;
 
 
     public CatCatExpandableAdapter(Context context, ArrayList<ExpandableCategory> list) {
         this.context = context;
         this.list = list;
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -68,33 +74,50 @@ public class CatCatExpandableAdapter extends BaseExpandableListAdapter {
         ExpandableCategory listTitle = (ExpandableCategory) getGroup(groupPosition);
         String name = listTitle.getName();
         if (convertView == null) {
-            LayoutInflater layoutInflater = (LayoutInflater) this.context.
-                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.parent_expand_header, null);
+            convertView = inflater.inflate(R.layout.parent_expand_header, null);
         }
         TextView listTitleTextView = convertView.findViewById(R.id.expand_parent);
+        ImageView imageView = convertView.findViewById(R.id.expand_logo);
         listTitleTextView.setText(name);
 
+        if (name.equals("Кухня"))
+            imageView.setImageResource(R.drawable.cooking);
+        else if (name.equals("Ванная"))
+            imageView.setImageResource(R.drawable.bath);
+        else if (name.equals("Для детей"))
+            imageView.setImageResource(R.drawable.toys);
+        else if (name.equals("Бытовая техника"))
+            imageView.setImageResource(R.drawable.iron);
+
+        convertView.setBackgroundColor(WHITE);
         return convertView;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        final String child = (String) getChild(groupPosition, childPosition);
         if (convertView == null) {
-            LayoutInflater layoutInflater = (LayoutInflater) this.context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.expand_child, null);
+            convertView = inflater.inflate(R.layout.expand_child, null);
         }
+        String child = (String) getChild(groupPosition, childPosition);
         TextView name = convertView.findViewById(R.id.expand_child);
         ImageView img = convertView.findViewById(R.id.expand_img);
         name.setText(child);
 
-        String titleName = getGroup(groupPosition).toString();
-        if(titleName.equals("Кухня")){
-            if(child.equals("Чашки"))
-                img.setImageResource(R.drawable.ic_image);
-        }
+        if (child.equals("Чашки"))
+            img.setImageResource(R.drawable.cup);
+        else if (child.equals("Посуда"))
+            img.setImageResource(R.drawable.plate);
+        else if (child.equals("Хлебница"))
+            img.setImageResource(R.drawable.bread);
+        else if (child.equals("Сушилка для посуды"))
+            img.setImageResource(R.drawable.cleaner);
+        else if (child.equals("Вазы"))
+            img.setImageResource(R.drawable.vase);
+        else if (child.equals("Столовые приборы"))
+            img.setImageResource(R.drawable.cutlery);
+        else if (child.equals("Кухонные аксессуары"))
+            img.setImageResource(R.drawable.accessory);
         return convertView;
     }
 

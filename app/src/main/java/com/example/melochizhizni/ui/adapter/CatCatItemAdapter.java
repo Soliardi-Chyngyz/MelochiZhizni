@@ -4,10 +4,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView.OnItemClickListener;
+
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.melochizhizni.R;
 import com.example.melochizhizni.data.models.Item;
 import com.example.melochizhizni.databinding.CatItemBinding;
@@ -23,6 +25,12 @@ public class CatCatItemAdapter extends RecyclerView.Adapter<CatCatItemAdapter.Vi
     public CatCatItemAdapter(List<Item> list, OnItemClickListener listener) {
         this.list = list;
         this.listener = listener;
+    }
+
+    public void setList(List<Item> list) {
+        this.list.clear();
+        this.list = list;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -66,7 +74,7 @@ public class CatCatItemAdapter extends RecyclerView.Adapter<CatCatItemAdapter.Vi
 
     }
 
-    public void setOnItemListener(OnItemClickListener listener){
+    public void setOnItemListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 

@@ -112,18 +112,17 @@
 
         <Button
             android:id="@+id/cat_item_add_to_basket"
-            android:text="Добавить в карзину"
             android:layout_width="match_parent"
-            android:drawableRight="@drawable/basket"
             android:layout_height="wrap_content"
-            android:paddingEnd="70dp"
+            android:background="@drawable/btn_transparent"
+            android:drawableRight="@drawable/basket"
+            android:fontFamily="@font/cormorant_unicase_light"
             android:paddingStart="40dp"
+            android:paddingEnd="70dp"
+            android:text="Добавить в карзину"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/btn_transparent"
-            android:fontFamily="@font/cormorant_unicase_light"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cat_item_weight" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
