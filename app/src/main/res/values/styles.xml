@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="text">
         <item name="fontFamily">@font/cormorant_unicase_light</item>
         <item name="android:layout_width">match_parent</item>
@@ -28,6 +29,25 @@
 
     <style name="Mine.Toolbar" parent="Widget.AppCompat.Toolbar.Button.Navigation">
 
+    </style>
+
+    <style name="selected_toolbar">
+        <item name="logo">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">?attr/colorAccent</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">@color/black</item>
+        <item name="selectableItemBackground">@color/gray</item>
+        <item name="tabSelectedTextColor">@color/splash</item>
+    </style>
+
+    <!-- for text -->
+    <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/splash</item>
+        <item name="textAllCaps">false</item>
     </style>
 
 </resources>

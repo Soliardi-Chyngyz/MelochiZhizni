@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_gravity="center_horizontal"
+    android:padding="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/expand_logo"
-        android:layout_width="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginLeft="20dp"
-        android:layout_height="wrap_content"/>
+        android:layout_width="90px"
+        android:layout_marginRight="40dp"
+        android:layout_gravity="center_vertical"
+        android:layout_height="90px"/>
     <TextView
         android:id="@+id/expand_parent"
         android:layout_width="fill_parent"
         style="@style/text"
         android:gravity="left"
+        android:layout_marginLeft="10dp"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:paddingTop="10dp"

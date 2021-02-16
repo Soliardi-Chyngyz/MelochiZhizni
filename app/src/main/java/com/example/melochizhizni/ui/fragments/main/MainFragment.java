@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.melochizhizni.App;
+import com.example.melochizhizni.Prefs;
 import com.example.melochizhizni.R;
 import com.example.melochizhizni.ui.adapter.FragmentAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,6 +26,7 @@ import java.util.List;
 
 public class MainFragment extends Fragment {
     private FloatingActionButton addBtn;
+    private TextView text;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

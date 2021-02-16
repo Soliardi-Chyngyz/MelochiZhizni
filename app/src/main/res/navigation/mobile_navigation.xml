@@ -22,6 +22,19 @@
         <action
             android:id="@+id/action_navigation_main_to_formFragment"
             app:destination="@id/formFragment" />
+        <action
+            android:id="@+id/action_navigation_main_to_navigation_basket"
+            app:destination="@id/navigation_basket"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_navigation_main_to_cumulativePointsFragment"
+            app:destination="@id/cumulativePointsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_navigation_main_to_navigation_category"
+            app:destination="@id/navigation_category" />
     </fragment>
 
     <fragment
@@ -30,12 +43,10 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
-            android:id="@+id/action_navigation_category_to_itemFragment"
-            app:destination="@id/itemFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            android:id="@+id/action_navigation_category_to_catCatRecyclerFragment"
+            app:destination="@id/catCatRecyclerFragment"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -56,7 +67,7 @@
         tools:layout="@layout/fragment_form" />
     <fragment
         android:id="@+id/catCategoryFragment"
-        android:name="com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.CatCategoryFragment"
+        android:name="com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.CatCategory.CatCategoryFragment"
         android:label="fragment_cat_category"
         tools:layout="@layout/fragment_cat_category" />
     <fragment
@@ -69,14 +80,29 @@
         android:name="com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.item.ItemFragment"
         android:label="Описание товара" >
         <action
-            android:id="@+id/action_itemFragment_to_navigation_category"
-            app:destination="@id/navigation_category"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out"
-            app:popUpTo="@id/catCategoryFragment" />
+            android:id="@+id/action_itemFragment_to_catCategoryFragment"
+            app:destination="@id/catCategoryFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/catCatRecyclerFragment"
+        android:name="com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.CatCatRecycler.CatCatRecyclerFragment"
+        android:label="fragment_cat_cat_recycler"
+        tools:layout="@layout/fragment_cat_cat_recycler" >
+        <action
+            android:id="@+id/action_catCatRecyclerFragment_to_itemFragment"
+            app:destination="@id/itemFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/categorySelectedFragment"
+        android:name="com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.SelectedFragment.CategorySelectedFragment"
+        android:label="CategorySelectedFragment" />
+    <fragment
+        android:id="@+id/cumulativePointsFragment"
+        android:name="com.example.melochizhizni.ui.fragments.cumulative.CumulativePointsFragment"
+        android:label="fragment_cumulative_points"
+        tools:layout="@layout/fragment_cumulative_points" />
 
 
 </navigation>

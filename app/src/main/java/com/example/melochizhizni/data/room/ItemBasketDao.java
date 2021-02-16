@@ -11,7 +11,7 @@ import com.example.melochizhizni.data.models.Item;
 
 import java.util.List;
 @Dao
-public interface ItemDao {
+public interface ItemBasketDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void addListItem(List<Item> listItem);
 

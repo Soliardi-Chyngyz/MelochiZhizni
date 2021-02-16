@@ -3,14 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/selected_menu"
         android:title="Избраное"
+        android:icon="@drawable/ic_star_2"
         app:showAsAction="never" />
-
     <item
-        android:id="@+id/basket"
-        android:icon="@drawable/baskets"
+        android:id="@+id/barcode_menu"
+        android:title="Накопительные баллы"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/basket_menu"
         android:title="Карзина"
         app:showAsAction="never" />
+
+
 
 </menu>

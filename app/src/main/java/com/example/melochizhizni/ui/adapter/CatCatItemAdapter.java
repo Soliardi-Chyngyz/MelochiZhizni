@@ -19,17 +19,17 @@ import java.util.List;
 
 public class CatCatItemAdapter extends RecyclerView.Adapter<CatCatItemAdapter.ViewHolder> {
 
-    private List<Item> list;
+    private List<Item> listItem;
     private OnItemClickListener listener;
 
     public CatCatItemAdapter(List<Item> list, OnItemClickListener listener) {
-        this.list = list;
+        this.listItem = list;
         this.listener = listener;
     }
 
     public void setList(List<Item> list) {
-        this.list.clear();
-        this.list = list;
+        listItem.clear();
+        this.listItem = list;
         notifyDataSetChanged();
     }
 
@@ -43,11 +43,11 @@ public class CatCatItemAdapter extends RecyclerView.Adapter<CatCatItemAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull CatCatItemAdapter.ViewHolder holder, int position) {
-        holder.onBind(list.get(position));
+        holder.onBind(listItem.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClicked(list.get(position), position);
+                listener.onItemClicked(listItem.get(position), position);
                 notifyDataSetChanged();
             }
         });
@@ -55,7 +55,7 @@ public class CatCatItemAdapter extends RecyclerView.Adapter<CatCatItemAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return listItem.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -73,7 +73,6 @@ public class CatCatItemAdapter extends RecyclerView.Adapter<CatCatItemAdapter.Vi
         }
 
     }
-
     public void setOnItemListener(OnItemClickListener listener) {
         this.listener = listener;
     }

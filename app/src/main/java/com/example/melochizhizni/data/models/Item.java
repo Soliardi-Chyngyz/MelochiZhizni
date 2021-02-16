@@ -15,7 +15,7 @@ import com.google.firebase.firestore.Exclude;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-@Entity
+@Entity(tableName = "Item")
 public class Item implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private long itemId;

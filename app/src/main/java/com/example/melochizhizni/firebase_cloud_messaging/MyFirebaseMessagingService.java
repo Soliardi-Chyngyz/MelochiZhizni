@@ -13,10 +13,9 @@ import android.provider.Settings;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
-import com.example.melochizhizni.MainActivity;
+import com.example.melochizhizni.ui.mainActivity.MainActivity;
 import com.example.melochizhizni.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;

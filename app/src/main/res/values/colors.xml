@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#EDEDED</color>
     <color name="splash">#fff</color>
+    <color name="start">#FFDF00</color>
+    <color name="gray">#8EE1EC</color>
 </resources>

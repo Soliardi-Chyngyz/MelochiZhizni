@@ -1,51 +1,39 @@
 package com.example.melochizhizni.ui.fragments.dashboard;
 
-import android.animation.LayoutTransition;
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
-import androidx.work.WorkManager;
 
 import com.example.melochizhizni.R;
 import com.example.melochizhizni.databinding.FragmentDashboardBinding;
 import com.example.melochizhizni.ui.adapter.FragmentAdapter;
-import com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.CatCategoryFragment;
-import com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.CategorySelectedFragment;
+import com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.CatCategory.CatCategoryFragment;
+import com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.SelectedFragment.CategorySelectedFragment;
 import com.example.melochizhizni.ui.fragments.dashboard.pagerFragments.CategoryTopFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
+import static com.example.melochizhizni.data.ConstantKeys.TRANSFER_YES;
 
 public class DashboardFragment extends Fragment {
     private ViewPager2 viewPager;
-    private FragmentAdapter fragmentAdapter;
     private FragmentDashboardBinding binding;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        fragmentAdapter = new FragmentAdapter(this, getFragmentList());
-    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.bind(inflater.inflate(R.layout.fragment_dashboard, container, false));
+        assert binding != null;
         return binding.getRoot();
     }
 
@@ -53,12 +41,21 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewPager = view.findViewById(R.id.view_pager_dash);
-        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1){
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(this, getFragmentList());
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1) {
             viewPager.setUserInputEnabled(false);
         }
         viewPager.setAdapter(fragmentAdapter);
         init(view);
+        getTransfer();
+    }
 
+    private void getTransfer() {
+        if (getArguments() != null) {
+            boolean transfer = getArguments().getBoolean(TRANSFER_YES);
+            if (transfer)
+                viewPager.setCurrentItem(2, true);
+        }
     }
 
     private void init(View view) {

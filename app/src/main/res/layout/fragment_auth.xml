@@ -16,6 +16,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edit_name"
+        android:inputType="textCapWords"
         style="@style/text"
         android:hint="Введите ваше имя" />
 
@@ -33,19 +34,21 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_phone"
             style="@style/text"
+            android:inputType="number"
             android:hint=" Введиде свой номер телефона" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_continue"
         android:layout_marginTop="16dp"
-        android:text="Продолжить"
+        android:text="Отправить"
         android:background="@drawable/button_style"
         style="@style/btn_style" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edit_confirm_phone_code"
         style="@style/text"
+        android:inputType="number"
         android:hint="Введите код"
         android:visibility="gone" />
 
@@ -55,6 +58,7 @@
         android:layout_marginTop="16dp"
         android:text="Подтвердить"
         android:background="@drawable/button_style"
+        android:layout_marginBottom="20dp"
         android:visibility="gone" />
 
     <Button

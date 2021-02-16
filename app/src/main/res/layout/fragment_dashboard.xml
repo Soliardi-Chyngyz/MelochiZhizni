@@ -19,6 +19,8 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/my_tab_layout"
+            style="@style/AppTabLayout"
+            app:tabBackground="@drawable/tab_color_selected"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabIndicatorColor="@color/purple_500"

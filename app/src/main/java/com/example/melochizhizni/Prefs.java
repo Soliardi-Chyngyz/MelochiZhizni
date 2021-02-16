@@ -37,4 +37,11 @@ public class Prefs {
         return preferences.getString("image", null);
     }
 
+    public void saveName(String name) {
+        preferences.edit().putString("name", name).apply();
+    }
+
+    public String getName() {
+        return preferences.getString("name", null);
+    }
 }

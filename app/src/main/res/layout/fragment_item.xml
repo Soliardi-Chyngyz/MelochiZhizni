@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="model"
             type="com.example.melochizhizni.data.models.Item" />
@@ -12,9 +14,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:padding="16dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
+        <ImageView
+            android:id="@+id/cat_item_star"
+            android:src="@drawable/ic_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <ImageView
             android:id="@+id/cat_item_img"
             android:layout_width="match_parent"
@@ -25,26 +34,25 @@
 
         <TextView
             android:id="@+id/cat_item_cat"
-            android:text="@{model.category}"
-            android:layout_width="wrap_content"
             style="@style/text"
-            android:textStyle="bold"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/cat_item_img"
             android:layout_marginTop="20dp"
+            android:text="@{model.category}"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/cat_item_img" />
 
         <TextView
             android:id="@+id/cat_item_price"
             style="@style/text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cat_item_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="@{model.price + ` сом`}"
             android:textColor="@color/green"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cat_item_img" />
 
         <TextView
             android:id="@+id/cat_item_article"
@@ -69,8 +77,8 @@
 
         <TextView
             android:id="@+id/cat_item_features"
-            android:layout_width="match_parent"
             style="@style/text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@{model.features}"
@@ -80,13 +88,13 @@
 
         <TextView
             android:id="@+id/cat_item_size"
-            app:layout_constraintTop_toBottomOf="@id/cat_item_features"
-            android:layout_marginTop="20dp"
             style="@style/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="@{model.size}"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintTop_toBottomOf="@id/cat_item_features" />
 
         <TextView
             android:id="@+id/cat_item_box_size"
@@ -94,28 +102,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@{model.sizeInBox}"
             android:layout_marginEnd="252dp"
+            android:text="@{model.sizeInBox}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintRight_toLeftOf="@id/cat_item_size"
             app:layout_constraintTop_toBottomOf="@id/cat_item_features" />
 
         <TextView
             android:id="@+id/cat_item_weight"
-            android:text="@{model.weight + ` грамм`}"
             style="@style/text"
-            app:layout_constraintTop_toBottomOf="@id/cat_item_size"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{model.weight + ` грамм`}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cat_item_size" />
 
         <Button
             android:id="@+id/cat_item_add_to_basket"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_transparent"
-            android:drawableRight="@drawable/basket"
+            android:drawableRight="@drawable/bsk"
             android:fontFamily="@font/cormorant_unicase_light"
             android:paddingStart="40dp"
             android:paddingEnd="70dp"
@@ -123,6 +131,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/cat_item_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_img"
+            android:backgroundTint="@color/purple_500"
+            android:padding="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
